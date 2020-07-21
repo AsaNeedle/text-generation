@@ -89,5 +89,3 @@ class TextGeneration
 end
 
 generator = TextGeneration.new
-
-#  ruby -r "./lib/text_generation.rb" -e "TextGeneration.new.start_listener"
