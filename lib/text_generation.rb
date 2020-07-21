@@ -76,9 +76,11 @@ class TextGeneration
   def start_listener()
     listener = Listen.to(__dir__) do |added|
       sentence_len, sentence_num, depth = 10, 10, 3
-      file = added.first
-      text = generate_text(file, sentence_len, sentence_num, depth)
-      puts text
+      if modified.length > 0
+        file = added.first
+        text = generate_text(file, sentence_len, sentence_num, depth)
+        puts text
+      end
     end
     listener.start 
     listener.ignore /\.rb/ 
