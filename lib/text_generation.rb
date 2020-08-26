@@ -73,10 +73,11 @@ class TextGeneration
     return paragraph_generator(word_dict, sentence_len, sentence_num) 
   end
 
+  # listens for additions to lib file
   def start_listener()
     listener = Listen.to(__dir__) do |added|
       sentence_len, sentence_num, depth = 10, 10, 3
-      if modified.length > 0
+      if added.length > 0
         file = added.first
         text = generate_text(file, sentence_len, sentence_num, depth)
         puts text
